@@ -1,0 +1,20 @@
+.todo-item {
+  padding: 1rem 0.6rem;
+  color: var(--very-dark-grayish-blue);
+}
+
+.todo-item-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item-container p {
+  flex: 1;
+}
+
+.todo-item-container button {
+  border: none;
+  background: transparent;
+}

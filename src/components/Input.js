@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import { useState } from "react";
+import TodosContext from "../context/TodosContext";
 import "./Input.css";
 
-const Input = ({ onTodoAdded }) => {
+const Input = () => {
   const [value, setValue] = useState("");
+  const { addTodo } = useContext(TodosContext);
 
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
-      onTodoAdded(e.currentTarget.value);
+      addTodo(e.currentTarget.value);
       setValue("");
     }
   };

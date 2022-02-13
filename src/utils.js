@@ -23,12 +23,23 @@ export const getTodos = () => {
   return [];
 };
 
-export const saveTodo = (value) => {
-  if (!value) return;
-  const todos = getTodos();
+export const saveTodo = (t) => {
+  if (!t) return;
 
-  const exists = todos.find((todo) => todo.value === value);
-  if (exists) return;
-  todos.push({ value, completed: false });
+  let todos = getTodos();
+
+  const exists = todos.findIndex((todo) => todo.value === t.value);
+  if (exists !== -1) {
+    todos = todos.map((todo) => {
+      if (todo.value === t.value) {
+        todo = t;
+      }
+      return todo;
+    });
+  } else {
+    todos.push(t);
+  }
+
   localStorage.setItem("todos", JSON.stringify(todos));
+  return todos;
 };

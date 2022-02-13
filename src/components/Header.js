@@ -5,7 +5,7 @@ import iconMoon from "../images/icon-moon.svg";
 
 import "./Header.css";
 
-const Banner = ({ onTodoAdded }) => {
+const Banner = () => {
   const [theme, setTheme] = useTheme();
 
   return (
@@ -15,7 +15,7 @@ const Banner = ({ onTodoAdded }) => {
         <button onClick={setTheme}>
           <img src={theme === "dark" ? iconSun : iconMoon} alt="theme toggle" />
         </button>
-        <Input onTodoAdded={onTodoAdded} />
+        <Input />
       </div>
     </div>
   );
