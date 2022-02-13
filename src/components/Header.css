@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 4rem;
+  grid-template-areas:
+    "header toggle"
+    "input input";
+  max-width: 90vw;
+  margin: auto;
+  padding-top: 5rem;
+}
+
+.container h1 {
+  grid-area: header;
+  align-self: start;
+  justify-self: start;
+  margin: 0;
+  color: var(--l-very-light-gray);
+  letter-spacing: 0.9rem;
+}
+
+.container button {
+  grid-area: toggle;
+  align-self: start;
+  justify-self: end;
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+}
+
+.container .input {
+  grid-area: input;
+}

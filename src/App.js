@@ -1,19 +1,30 @@
+import { useState } from "react";
 import "./App.css";
+import TodosContext from "./context/TodosContext";
+import Header from "./components/Header";
+import TodoList from "./components/TodoList";
+import { getTodos, saveTodo } from "./utils";
 
 function App() {
-  const handleClick = () => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    const theme = savedTheme === "light" ? "dark" : "light";
+  const [todos, setTodos] = useState(getTodos());
 
-    const el = document.getElementById("data-theme");
-    el.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+  const handleTodoAdded = (value) => {
+    const todo = { value, completed: false };
+    saveTodo(todo);
+    setTodos([todo, ...todos]);
   };
 
   return (
-    <main id="data-theme" data-theme="light">
-      <button onClick={handleClick}>Change Theme</button>
-    </main>
+    <TodosContext.Provider value={todos}>
+      <main id="data-theme" data-theme="light">
+        <div className="banner">
+          <Header onTodoAdded={handleTodoAdded} />
+        </div>
+        <div className="body">
+          <TodoList todos={todos} />
+        </div>
+      </main>
+    </TodosContext.Provider>
   );
 }
 

@@ -2,3 +2,17 @@ main {
   height: 100%;
   background-color: var(--very-light-gray);
 }
+
+.banner {
+  background-image: var(--bg-image-mobile);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 18rem;
+}
+
+@media (min-width: 40rem) {
+  .banner {
+    background-image: var(--bg-image-desktop);
+  }
+}

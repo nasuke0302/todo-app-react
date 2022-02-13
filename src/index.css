@@ -5,6 +5,8 @@
   --l-light-grayish-blue: hsl(233, 11%, 84%);
   --l-dark-grayish-blue: hsl(236, 9%, 61%);
   --l-very-dark-grayish-blue: hsl(235, 19%, 35%);
+  --l-bg-image-desktop: url("./images/bg-desktop-light.jpg");
+  --l-bg-image-mobile: url("./images/bg-mobile-light.jpg");
 
   /* Dark Theme colors */
   --d-very-dark-blue: hsl(235, 21%, 11%);
@@ -14,6 +16,8 @@
   --d-dark-grayish-blue: hsl(234, 11%, 52%);
   --d-very-dark-grayish-blue: hsl(233, 14%, 35%);
   --d-very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+  --d-bg-image-desktop: url("./images/bg-desktop-dark.jpg");
+  --d-bg-image-mobile: url("./images/bg-mobile-dark.jpg");
 }
 
 [data-theme="light"] {
@@ -22,6 +26,8 @@
   --light-grayish-blue: var(--l-light-grayish-blue);
   --dark-grayish-blue: var(--l-dark-grayish-blue);
   --very-dark-grayish-blue: var(--l-very-dark-grayish-blue);
+  --bg-image-desktop: var(--l-bg-image-desktop);
+  --bg-image-mobile: var(--l-bg-image-mobile);
 }
 
 [data-theme="dark"] {
@@ -30,11 +36,18 @@
   --light-grayish-blue: var(--d-light-grayish-blue);
   --dark-grayish-blue: var(--d-dark-grayish-blue);
   --very-dark-grayish-blue: var(--d-very-dark-grayish-blue);
+  --bg-image-desktop: var(--d-bg-image-desktop);
+  --bg-image-mobile: var(--d-bg-image-mobile);
+}
+
+html,
+body {
+  margin: 0;
 }
 
 body {
-  margin: 0;
   height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 #root {
