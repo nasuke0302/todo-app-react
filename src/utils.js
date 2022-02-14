@@ -43,3 +43,10 @@ export const saveTodo = (t) => {
   localStorage.setItem("todos", JSON.stringify(todos));
   return todos;
 };
+
+export const clearCompletedTodos = () => {
+  const todos = getTodos();
+  const activeOnly = todos.filter((t) => !t.completed);
+  localStorage.setItem("todos", JSON.stringify(activeOnly));
+  return activeOnly;
+};

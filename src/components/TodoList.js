@@ -5,15 +5,21 @@ import Summary from "./Summary";
 import "./TodoList.css";
 
 const TodoList = () => {
-  const { todos } = useContext(TodosContext);
+  const { filteredTodos, todos, clearCompleted } = useContext(TodosContext);
+  const handleClearCompleted = () => {
+    clearCompleted();
+  };
 
   return (
     <div className="todo-list-container">
       <ul className="todo-list">
-        {todos.map((todo, i) => {
+        {filteredTodos.map((todo, i) => {
           return <TodoItem key={i} todo={todo} />;
         })}
-        <Summary amount={todos?.length} />
+        <Summary
+          amount={todos?.length}
+          onClearCompleted={handleClearCompleted}
+        />
       </ul>
     </div>
   );

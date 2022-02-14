@@ -30,6 +30,11 @@
 
 .icon-container img {
   width: 50%;
+  display: none;
+}
+
+.completed .icon-container img {
+  display: inline;
 }
 
 .todo-item-container p {

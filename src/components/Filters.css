@@ -1,0 +1,19 @@
+.filters-container {
+  border-radius: 0.3rem;
+  background-color: var(--primary);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.filters p {
+  color: var(--light-grayish-blue);
+}
+
+.filters .active {
+  color: var(--bright-blue);
+}

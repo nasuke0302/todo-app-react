@@ -1,4 +1,6 @@
 :root {
+  --bright-blue: hsl(220, 98%, 61%);
+
   /* Light Theme colors */
   --l-very-light-gray: hsl(0, 0%, 98%);
   --l-very-light-grayish-blue: hsl(236, 33%, 92%);

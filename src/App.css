@@ -11,8 +11,24 @@ main {
   min-height: 18rem;
 }
 
+.relative-body {
+  position: relative;
+}
+
+.body {
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
 @media (min-width: 40rem) {
   .banner {
     background-image: var(--bg-image-desktop);
+  }
+
+  .body {
+    max-width: 500px;
   }
 }

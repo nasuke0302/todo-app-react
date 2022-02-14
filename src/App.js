@@ -1,12 +1,34 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import TodosContext from "./context/TodosContext";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
-import { getTodos, saveTodo } from "./utils";
+import Filters from "./components/Filters";
+import { clearCompletedTodos, getTodos, saveTodo } from "./utils";
 
 function App() {
   const [todos, setTodos] = useState(getTodos());
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [filteredTodos, setFilteredTodos] = useState(todos);
+
+  useEffect(() => {
+    switch (activeFilter) {
+      case "active":
+        setFilteredTodos(todos.filter((t) => !t.completed));
+        break;
+      case "completed":
+        setFilteredTodos(todos.filter((t) => t.completed));
+        break;
+      case "all":
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  }, [activeFilter]);
+
+  useEffect(() => {
+    setFilteredTodos(todos);
+  }, [todos]);
 
   const addTodo = (newTodo) => {
     const todo = { value: newTodo, completed: false };
@@ -24,9 +46,22 @@ function App() {
     return;
   };
 
+  const clearCompleted = () => {
+    const activeOnly = clearCompletedTodos();
+    setTodos(activeOnly);
+  };
+
   const value = useMemo(
-    () => ({ todos, addTodo, toggleCompleteTodo }),
-    [todos]
+    () => ({
+      todos,
+      filteredTodos,
+      addTodo,
+      toggleCompleteTodo,
+      activeFilter,
+      setActiveFilter,
+      clearCompleted,
+    }),
+    [todos, activeFilter, filteredTodos, setActiveFilter]
   );
 
   return (
@@ -35,8 +70,11 @@ function App() {
         <div className="banner">
           <Header />
         </div>
-        <div className="body">
-          <TodoList />
+        <div className="relative-body">
+          <div className="body">
+            <TodoList />
+            <Filters />
+          </div>
         </div>
       </main>
     </TodosContext.Provider>
