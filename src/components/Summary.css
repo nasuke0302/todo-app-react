@@ -1,0 +1,23 @@
+.summary {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.amount,
+.clear-btn {
+  color: var(--light-grayish-blue);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.amount {
+  margin: 0;
+}
+
+.clear-btn {
+  border: none;
+  background: transparent;
+}

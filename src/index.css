@@ -21,6 +21,7 @@
 }
 
 [data-theme="light"] {
+  --primary: white;
   --very-light-gray: var(--l-very-light-gray);
   --very-light-grayish-blue: var(--l-very-light-grayish-blue);
   --light-grayish-blue: var(--l-light-grayish-blue);
@@ -31,6 +32,7 @@
 }
 
 [data-theme="dark"] {
+  --primary: var(--d-very-dark-desaturated-blue);
   --very-light-gray: var(--d-very-dark-blue);
   --very-light-grayish-blue: var(--d-very-dark-desaturated-blue);
   --light-grayish-blue: var(--d-light-grayish-blue);
